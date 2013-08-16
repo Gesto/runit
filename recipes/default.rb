@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: runit
+# Cookbook Name:: grunit
 # Recipe:: default
 #
 # Copyright 2008-2010, Opscode, Inc.

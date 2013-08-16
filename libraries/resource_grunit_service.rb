@@ -23,13 +23,13 @@ require 'chef/resource/service'
 
 class Chef
   class Resource
-    class RunitService < Chef::Resource::Service
+    class GrunitService < Chef::Resource::Service
 
       def initialize(name, run_context=nil)
         super
         runit_node = runit_attributes_from_node(run_context)
-        @resource_name = :runit_service
-        @provider = Chef::Provider::Service::Runit
+        @resource_name = :grunit_service
+        @provider = Chef::Provider::Service::Grunit
         @supports = { :restart => true, :reload => true, :status => true }
         @action = :enable
         @allowed_actions = [:nothing, :start, :stop, :enable, :disable, :restart, :reload, :status, :once, :hup, :cont, :term, :kill, :up, :down, :usr1, :usr2]

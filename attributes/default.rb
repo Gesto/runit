@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: runit
+# Cookbook Name:: grunit
 # Attribute File:: sv_bin
 #
 # Copyright 2008-2009, Opscode, Inc.

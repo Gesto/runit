@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: runit
+# Cookbook Name:: grunit
 # Provider:: service
 #
 # Copyright 2011, Joshua Timberman
@@ -33,7 +33,7 @@ require 'chef/mixin/language'
 class Chef
   class Provider
     class Service
-      class Runit < Chef::Provider::Service
+      class Grunit < Chef::Provider::Service
         include Chef::Mixin::ShellOut
 
         def initialize(*args)
@@ -56,7 +56,7 @@ class Chef
         end
 
         def load_current_resource
-          @current_resource = Chef::Resource::RunitService.new(new_resource.name)
+          @current_resource = Chef::Resource::GrunitService.new(new_resource.name)
           @current_resource.service_name(new_resource.service_name)
 
           Chef::Log.debug("Checking status of service #{new_resource.service_name}")
@@ -371,7 +371,7 @@ EOF
           @log_config_file.owner(new_resource.owner)
           @log_config_file.group(new_resource.group)
           @log_config_file.mode(00644)
-          @log_config_file.cookbook("runit")
+          @log_config_file.cookbook("grunit")
           @log_config_file.source("log-config.erb")
           @log_config_file.variables({
             :size => new_resource.log_size,
@@ -459,7 +459,7 @@ EOF
             @lsb_init.owner('root')
             @lsb_init.group('root')
             @lsb_init.mode(00755)
-            @lsb_init.cookbook('runit')
+            @lsb_init.cookbook('grunit')
             @lsb_init.source('init.d.erb')
             @lsb_init.variables(:name => new_resource.service_name)
           else
